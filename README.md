@@ -1,6 +1,6 @@
 # Crypto Wallet Explorer
 
-A simple, cross-platform wallet.dat scanner for Bitcoin-family wallets. It tries pywallet for structured dumps when available, and safely falls back to read-only address discovery (Base58 + Bech32 + ETH 0x strings).
+A simple, cross-platform wallet.dat scanner for Bitcoin-family wallets. It is intended for users to scan wallet files on thier own machine to gain basic information on the contents of the wallet, balance is displayed where possible.  It tries pywallet for structured dumps when available, and safely falls back to read-only address discovery (Base58 + Bech32 + ETH 0x strings).
 
 ## features
 - Scans folders recursively for `.dat` and skips duplicate backups by content hash
