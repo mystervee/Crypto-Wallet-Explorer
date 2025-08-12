@@ -52,4 +52,6 @@ jobs:
 
       - name: Run tests (if present)
         if: hashFiles('tests/**') != ''
-        run: pytest -q
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python -m pytest -q
