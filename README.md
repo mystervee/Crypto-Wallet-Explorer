@@ -15,7 +15,7 @@ A simple, cross-platform wallet.dat scanner for Bitcoin-family wallets. It is in
 - Bech32 support for BTC (`bc1…`) and LTC (`ltc1…`)
 - CSV export including balance, dedup count, and first wallet path
 
-## usage
+## Usage
 
 From source (recommended for latest fixes):
 
@@ -41,7 +41,7 @@ python .\Basic_Wallet_Scanner.py --dir <path-to-backups> --csv scan_results.csv
 
 From release zip (prebuilt): download the latest release, extract, create a venv, install requirements, then run the command above.
 
-## quick start
+## Quick Start
 1) Create a virtual environment and install dependencies
 
 Windows (PowerShell):
@@ -92,7 +92,7 @@ python .\Basic_Wallet_Scanner.py --dir D:\Backups\Wallets --csv D:\out\scan.csv
 python .\Basic_Wallet_Scanner.py --dir D:\Backups\Wallets --no-balances
 ```
 
-## supported coins
+## Supported Coins
 - BTC: Base58 P2PKH/P2SH, Bech32 `bc1…`
 - LTC: Base58 P2PKH/P2SH, Bech32 `ltc1…`
 - DOGE: Base58 P2PKH/P2SH
@@ -100,7 +100,7 @@ python .\Basic_Wallet_Scanner.py --dir D:\Backups\Wallets --no-balances
 - GRC (Gridcoin): Base58 P2PKH
 - ETH: Hex `0x` addresses (detection only; no balances)
 
-## output csv schema
+## Output csv Schema
 Columns:
 - `wallet`: Source file path where the address was first seen
 - `coin`: BTC/LTC/DOGE/PPC/GRC/ETH
@@ -110,7 +110,7 @@ Columns:
 - `count`: Number of times this (coin, address) was encountered across all files
 - `first_wallet`: The first wallet file in which this address appeared
 
-## windows + wsl (pywallet fallback)
+## Windows + WSL (pywallet fallback)
 PyWallet needs Berkeley DB (bsddb). On Windows this is tricky; the script will auto-try WSL if a local run fails with a bsddb error.
 
 Inside WSL (Ubuntu/Debian):
@@ -122,7 +122,7 @@ sudo apt install -y python3-bsddb3
 
 No extra setup is required beyond having WSL installed; the script converts paths and invokes `python3` within WSL for the pywallet step.
 
-## testing
+## Testing
 Developer tests live in `tests/` and can be run with pytest:
 
 ```powershell
@@ -130,23 +130,23 @@ python -m pip install -r requirements-dev.txt
 pytest -q
 ```
 
-## troubleshooting
+## Troubleshooting
 - PyWallet JSON parse errors: Make sure WSL + `python3-bsddb3` is installed on Windows, or run natively on Linux.
 - Public API limits: LTC/DOGE/PPC balances use public endpoints and may rate-limit or return empty data. Rerun later or use `--no-balances`.
 - Very old/alt forks: Address version bytes vary. The fallback will label as `UNKNOWN` if it can’t map a version byte.
 - No addresses found: Some backups store keys encrypted or in non-standard formats; try the pywallet path on Linux.
 
-## security and privacy
+## Security and Privacy
 - Read-only: The scanner never writes to wallet files or transacts on any network.
 - Offline usage: For maximum privacy, run with `--no-balances` to avoid network calls; you’ll still get address discovery and CSV export.
 
-## contributing
+## Contributing
 PRs welcome for:
 - Additional coin/version mappings and bech32 checksum verification
 - More reliable balance providers and optional API key support
 - Performance improvements and better CSV/reporting options
 
-## releases
+## Releases
 Prebuilt zips are published on the GitHub Releases page when a tag like `v1.0.0` is pushed.
 
 Contents:
@@ -167,5 +167,5 @@ python -m pip install -r requirements.txt
 python .\Basic_Wallet_Scanner.py --dir D:\Backups\Wallets --csv scan_results.csv
 ```
 
-## disclaimer
+## Disclaimer
 This tool is provided “as is,” without warranty of any kind. Use at your own risk.
