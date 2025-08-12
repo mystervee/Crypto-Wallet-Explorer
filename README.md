@@ -1,5 +1,7 @@
 # Crypto Wallet Explorer
 
+[![CI](https://github.com/mystervee/Crypto-Wallet-Explorer/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mystervee/Crypto-Wallet-Explorer/actions/workflows/ci.yml)
+
 A simple, cross-platform wallet.dat scanner for Bitcoin-family wallets. It is intended for users to scan wallet files on thier own machine to gain basic information on the contents of the wallet, balance is displayed where possible.  It tries pywallet for structured dumps when available, and safely falls back to read-only address discovery (Base58 + Bech32 + ETH 0x strings).
 
 ## features
@@ -12,6 +14,32 @@ A simple, cross-platform wallet.dat scanner for Bitcoin-family wallets. It is in
    - PPC via chainz/cryptoid
 - Bech32 support for BTC (`bc1…`) and LTC (`ltc1…`)
 - CSV export including balance, dedup count, and first wallet path
+
+## usage
+
+From source (recommended for latest fixes):
+
+Windows (PowerShell):
+
+```powershell
+python -m venv .venv
+.# existing code...
+```
+
+Linux/macOS (bash):
+
+```bash
+python3 -m venv .venv
+.# existing code...
+```
+
+Run the scanner:
+
+```powershell
+python .\Basic_Wallet_Scanner.py --dir <path-to-backups> --csv scan_results.csv
+```
+
+From release zip (prebuilt): download the latest release, extract, create a venv, install requirements, then run the command above.
 
 ## quick start
 1) Create a virtual environment and install dependencies
