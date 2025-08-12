@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.env/
+.python-version
+
+# Tests and caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editors/OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Project outputs
+scan_results.csv
+
+# Sensitive or bulky data
+For_Testing/
+**/*.dat

@@ -1,0 +1,2 @@
+bitcoinlib==0.7.5
+requests>=2.31.0,<3
