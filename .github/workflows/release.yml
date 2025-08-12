@@ -38,7 +38,5 @@ jobs:
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         with:
           files: dist/crypto-wallet-explorer.zip
