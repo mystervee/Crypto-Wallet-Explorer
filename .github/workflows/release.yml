@@ -8,6 +8,8 @@ on:
 jobs:
   build-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,5 +42,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         with:
           files: dist/crypto-wallet-explorer.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
